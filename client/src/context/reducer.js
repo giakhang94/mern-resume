@@ -9,6 +9,12 @@ import {
   PJ_CREATE_BEGIN,
   PJ_CREATE_ERROR,
   PJ_CREATE_SUCCESS,
+  PJ_GET_BY_ID_BEGIN,
+  PJ_GET_BY_ID_ERROR,
+  PJ_GET_BY_ID_SUCCESS,
+  PJ_UPDATE_BEGIN,
+  PJ_UPDATE_ERROR,
+  PJ_UPDATE_SUCCESS,
   USER_LOGIN_BEGIN,
   USER_LOGIN_ERROR,
   USER_LOGIN_SUCCESS,
@@ -111,6 +117,56 @@ const reducer = (state, action) => {
     return {
       ...state,
       isSubmit: false,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  if (action.type === PJ_UPDATE_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+      isSubmit: true,
+    };
+  }
+  if (action.type === PJ_UPDATE_SUCCESS) {
+    return {
+      ...state,
+      isSubmit: false,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Project Updated!",
+    };
+  }
+  if (action.type === PJ_UPDATE_ERROR) {
+    return {
+      ...state,
+      isSubmit: false,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.data.msg,
+    };
+  }
+  if (action.type === PJ_GET_BY_ID_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === PJ_GET_BY_ID_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      projectById: action.payload.data.PJ,
+    };
+  }
+  if (action.type === PJ_GET_BY_ID_ERROR) {
+    return {
+      ...state,
+
       isLoading: false,
       showAlert: true,
       alertType: "danger",

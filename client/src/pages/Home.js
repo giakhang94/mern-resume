@@ -26,6 +26,7 @@ const Home = () => {
                   link={pj.link}
                   github={pj.github}
                   thumb={pj.thumb}
+                  id={pj._id}
                 />
               );
             })}

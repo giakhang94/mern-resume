@@ -1,6 +1,7 @@
 import { FiEdit } from "react-icons/fi";
 import { useAppContext } from "../context/appContext";
-const ProjectCard = ({ title, link, github, thumb, classname }) => {
+import { Link } from "react-router-dom";
+const ProjectCard = ({ title, link, github, thumb, classname, id }) => {
   const { user } = useAppContext();
   return (
     <div
@@ -28,7 +29,9 @@ const ProjectCard = ({ title, link, github, thumb, classname }) => {
           </div>
         </div>
         {user && (
-          <FiEdit className="absolute top-2 right-2 bg-emerald-500/80 rounded-md cursor-pointer text-white text-xl block w-5 h-5 p-[2px]" />
+          <Link to={`/admin/project/${id}`}>
+            <FiEdit className="absolute top-2 right-2 bg-emerald-500/80 rounded-md cursor-pointer text-white text-xl block w-5 h-5 p-[2px]" />
+          </Link>
         )}
       </div>
       <div className="title text-slate-700 font-semibold tracking-[1.5px] text-lg px-1 py-1 truncate">

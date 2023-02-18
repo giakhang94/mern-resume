@@ -12,6 +12,11 @@ import {
   PJ_CREATE_BEGIN,
   PJ_CREATE_ERROR,
   PJ_CREATE_SUCCESS,
+  PJ_GET_BY_ID_BEGIN,
+  PJ_GET_BY_ID_SUCCESS,
+  PJ_UPDATE_BEGIN,
+  PJ_UPDATE_ERROR,
+  PJ_UPDATE_SUCCESS,
   USER_LOGIN_BEGIN,
   USER_LOGIN_ERROR,
   USER_LOGIN_SUCCESS,
@@ -26,6 +31,7 @@ const initState = {
   alertText: "",
   user: null,
   allProject: null,
+  projectById: null,
 };
 const appContext = createContext();
 const AppContextProvider = ({ children }) => {
@@ -114,12 +120,58 @@ const AppContextProvider = ({ children }) => {
     }
     clearAlert();
   };
+  const updatePJ = async (dataPJ, id) => {
+    dispatch({ type: PJ_UPDATE_BEGIN });
+    const formData = new FormData();
+    if (dataPJ.thumb) {
+      formData.append("thumb", dataPJ.thumb);
+    }
+    try {
+      await authFetch.patch(
+        `/project/${id}`,
+        {
+          ...dataPJ,
+          formData,
+        },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      dispatch({ type: PJ_UPDATE_SUCCESS });
+    } catch (error) {
+      dispatch({
+        type: PJ_UPDATE_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  };
+  const getPJById = async (id) => {
+    dispatch({ type: PJ_GET_BY_ID_BEGIN });
+    try {
+      const { data } = await authFetch.get(`/project/${id}`);
+      dispatch({ type: PJ_GET_BY_ID_SUCCESS, payload: { data } });
+    } catch (error) {
+      dispatch({ type: PJ_CREATE_ERROR });
+    }
+    clearAlert();
+  };
   useEffect(() => {
     getCurrentUser();
   }, []);
   return (
     <appContext.Provider
-      value={{ ...state, getAllProject, getCurrentUser, login, createPJ }}
+      value={{
+        ...state,
+        getAllProject,
+        getCurrentUser,
+        login,
+        createPJ,
+        updatePJ,
+        getPJById,
+      }}
     >
       {children}
     </appContext.Provider>

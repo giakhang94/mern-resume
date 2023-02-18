@@ -1,23 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Alert, Loading, SmallLoading } from "../components";
 import { useAppContext } from "../context/appContext";
 
-const CreateProject = () => {
+const EditProject = () => {
+  const { id } = useParams();
   const {
     isLoading,
     isCheckingUser,
-    createPJ,
     showAlert,
     alertText,
     alertType,
     isSubmit,
+    getPJById,
+    projectById,
+    updatePJ,
   } = useAppContext();
+  useEffect(() => {
+    getPJById(id);
+  }, [id]);
   const [input, setInput] = useState({
-    title: "",
     link: "",
+    title: "",
     github: "",
     thumb: null,
   });
+  useEffect(() => {
+    projectById &&
+      setInput((prev) => ({
+        ...prev,
+        title: projectById.title,
+        link: projectById.link,
+        github: projectById.github,
+      }));
+  }, [projectById]);
+
   const handleChange = (e) => {
     if (e.target.name !== "thumb") {
       setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -28,15 +45,18 @@ const CreateProject = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(input);
-    createPJ({
-      title: input.title,
-      link: input.link,
-      github: input.github,
-      thumb: input.thumb,
-    });
+    updatePJ(
+      {
+        title: input.title,
+        link: input.link,
+        github: input.github,
+        thumb: input.thumb,
+      },
+      id
+    );
     setInput({ title: "", link: "", github: "", thumb: null });
   };
-  if (!isSubmit && (isLoading || isCheckingUser)) {
+  if (!isSubmit && isLoading) {
     return <Loading />;
   }
   return (
@@ -48,7 +68,7 @@ const CreateProject = () => {
         className="w-80% max-w-[500px] mx-auto mt-5 px-5 py-5 shadow-md shadow-gray-500"
       >
         <h2 className="text-slate-700 font-semibold text-xl text-center mb-5">
-          ADD PROJECT
+          EDIT PROJECT
         </h2>
         {showAlert && (
           <Alert alertText={alertText} alertType={alertType} classname="mb-5" />
@@ -91,4 +111,4 @@ const CreateProject = () => {
     </div>
   );
 };
-export default CreateProject;
+export default EditProject;

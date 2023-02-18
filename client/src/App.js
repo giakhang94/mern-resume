@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { useAppContext } from "./context/appContext";
 import { Header } from "./components";
+import EditProject from "./pages/EditProject";
 function App() {
   const { user } = useAppContext();
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={user ? <Outlet /> : <Login />}>
             <Route path="/admin/createProject" element={<CreateProject />} />
+            <Route path="/admin/project/:id" element={<EditProject />} />
           </Route>
         </Routes>
       </div>
