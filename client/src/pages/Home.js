@@ -15,7 +15,7 @@ const Home = () => {
         <h2 className="text-center text-xl text-slate-700 font-semibold tracking-[1.5px]">
           My Projects
         </h2>
-        <div className="grid place-items-center w-full laptop:grid-cols-3 laptop:place-content-center tablet:grid-cols-3 grid-cols-1 ">
+        <div className="grid place-items-center w-full laptop:grid-cols-3 laptop:place-content-center tablet:grid-cols-2 grid-cols-1 ">
           {allProject &&
             allProject.allProject.map((pj, index) => {
               return (

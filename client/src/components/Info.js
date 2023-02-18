@@ -39,7 +39,7 @@ const info = {
 const Info = () => {
   return (
     <div className="mb-8 w-full">
-      <div className="flex items-center justify-center">
+      <div className="flex items-center mobile:justify-start smallmobile:justify-start tablet:justify-center laptop:justify-center flex-wrap">
         <div className="flex items-center mx-8">
           <span className="mr-2  text-emerald-600 text-lg font-bold bg-emerald-300 p-2 rounded-[50%]">
             <FiUser />
@@ -74,7 +74,9 @@ const Info = () => {
         </div>
       </div>
       <div className="skill"></div>
-      <SkillSlider skills={info.skills} />
+      <div className="mobile:hidden smallmobile:hidden tablet:block laptop:block">
+        <SkillSlider skills={info.skills} />
+      </div>
     </div>
   );
 };
