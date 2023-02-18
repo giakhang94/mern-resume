@@ -3,7 +3,8 @@ import Project from "../models/Project.js";
 
 const createPJ = async (req, res) => {
   const { link, github, title } = req.body;
-  const thumb = "http://localhost:5000/uploads/images/" + req.file.filename;
+  const thumb =
+    "https://merncv.onrender.com/uploads/images/" + req.file.filename;
   if (!link || !github || !title) {
     throw new BadRequestError("please provide all value");
   }
