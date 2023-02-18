@@ -9,11 +9,14 @@ import userRouter from "./routes/userRoutes.js";
 import projectRouter from "./routes/projectRoutes.js";
 import ErrorHandlerMiddleware from "./middlewares/ErrorHandlerMiddleware.js";
 import NotFoundHandlerMiddleware from "./middlewares/notFoundHandler.js";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
 dotenv.config();
 const port = process.env.PORT || 5000;
+const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 //fix cors error
 app.use((req, res, next) => {
