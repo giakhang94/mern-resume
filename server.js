@@ -14,6 +14,7 @@ import { fileURLToPath } from "url";
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.disable("etag");
 dotenv.config();
 const port = process.env.PORT || 5000;
 const __dirname = dirname(fileURLToPath(import.meta.url));
