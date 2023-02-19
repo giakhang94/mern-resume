@@ -20,6 +20,7 @@ import {
   USER_LOGIN_BEGIN,
   USER_LOGIN_ERROR,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT,
 } from "./action";
 const initState = {
   isSubmit: false,
@@ -158,6 +159,14 @@ const AppContextProvider = ({ children }) => {
     }
     clearAlert();
   };
+  const logout = async () => {
+    try {
+      await authFetch.get("user/logout");
+      dispatch({ type: USER_LOGOUT });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     getCurrentUser();
   }, []);
@@ -171,6 +180,7 @@ const AppContextProvider = ({ children }) => {
         createPJ,
         updatePJ,
         getPJById,
+        logout,
       }}
     >
       {children}

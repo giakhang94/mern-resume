@@ -18,6 +18,7 @@ import {
   USER_LOGIN_BEGIN,
   USER_LOGIN_ERROR,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT,
 } from "./action";
 
 const reducer = (state, action) => {
@@ -69,6 +70,7 @@ const reducer = (state, action) => {
     return {
       ...state,
       isCheckingUser: false,
+      user: null,
     };
   }
   if (action.type === USER_LOGIN_BEGIN) {
@@ -171,6 +173,12 @@ const reducer = (state, action) => {
       showAlert: true,
       alertType: "danger",
       alertText: action.payload.msg,
+    };
+  }
+  if (action.type === USER_LOGOUT) {
+    return {
+      ...state,
+      user: null,
     };
   }
 };

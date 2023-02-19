@@ -37,4 +37,12 @@ const getCurrentUser = async (req, res) => {
   const user = await User.findOne({ _id: req.user.userId });
   res.status(200).json({ user });
 };
-export { register, login, getCurrentUser };
+const logout = async (req, res) => {
+  res.cookie("token", "logout", {
+    httpOnly: true,
+    expires: new Date(Date.now() + 100),
+    secure: process.env.NODE_ENV === "production",
+  });
+  res.send();
+};
+export { register, login, getCurrentUser, logout };

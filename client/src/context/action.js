@@ -23,3 +23,5 @@ export const PJ_UPDATE_ERROR = "PJ_UPDATE_ERROR";
 export const PJ_GET_BY_ID_BEGIN = "PJ_GET_BY_ID_BEGIN";
 export const PJ_GET_BY_ID_SUCCESS = "PJ_GET_BY_ID_SUCCESS";
 export const PJ_GET_BY_ID_ERROR = "PJ_GET_BY_ID_ERROR";
+
+export const USER_LOGOUT = "USER_LOGOUT";
