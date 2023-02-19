@@ -17,12 +17,12 @@ const ProjectCard = ({ title, link, github, thumb, classname, id }) => {
           />
         </div>
         <div className="info hidden absolute group-hover:flex items-center space-x-5 z-10 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-          <div className="bg-gray-200/60 block text-slate-700 font-semibold tracking-[1.5] py-[5px] px-2 rounded-md">
+          <div className="bg-gray-200/60 block hover:bg-white/100 text-slate-700 font-semibold tracking-[1.5] py-[5px] px-2 rounded-md">
             <a href={link} target="_blank">
               Demo
             </a>
           </div>
-          <div className="bg-gray-200/60 block text-slate-700 font-semibold tracking-[1.5] py-[5px] px-2 rounded-md">
+          <div className="bg-gray-200/60 hover:bg-white/100 block text-slate-700 font-semibold tracking-[1.5] py-[5px] px-2 rounded-md">
             <a href={github} target="_blank">
               Github
             </a>
