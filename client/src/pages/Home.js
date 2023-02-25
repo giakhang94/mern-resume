@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAppContext } from "../context/appContext";
-import { Info, ProjectCard, SkillSlider } from "../components";
+import { Info, ProjectCard, JobInput, CV } from "../components";
 const Home = () => {
   const { allProject, getAllProject } = useAppContext();
   useEffect(() => {
@@ -10,6 +10,7 @@ const Home = () => {
     <div className="home w-screen">
       <div>
         <Info />
+        {/* <CV /> */}
       </div>
       <div className="w-full">
         <h2 className="text-center text-xl text-slate-700 font-semibold tracking-[1.5px]">
