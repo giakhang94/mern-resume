@@ -40,7 +40,7 @@ const Info = () => {
   return (
     <div className="mb-8 w-full">
       <div className="flex items-center mobile:justify-start smallmobile:justify-start tablet:justify-center laptop:justify-center flex-wrap">
-        <div className="flex items-center mx-8">
+        <div className="flex items-center mx-8 mb-2">
           <span className="mr-2  text-emerald-600 text-lg font-bold bg-emerald-300 p-2 rounded-[50%]">
             <FiUser />
           </span>
@@ -48,7 +48,7 @@ const Info = () => {
             {info.fullname}
           </span>
         </div>
-        <div className="flex items-center mx-8">
+        <div className="flex items-center mx-8 mb-2">
           <span className="mr-2 text-red-600 font-bold bg-red-300 text-lg p-2 rounded-[50%]">
             <HiOutlineMail />
           </span>
@@ -56,7 +56,7 @@ const Info = () => {
             {info.email}
           </span>
         </div>
-        <div className="flex items-center mx-8">
+        <div className="flex items-center mx-8 mb-2">
           <span className="mr-2 text-violet-600 font-bold bg-violet-300 text-lg p-2 rounded-[50%]">
             <ImMobile />
           </span>
@@ -64,7 +64,7 @@ const Info = () => {
             {info.mobile}
           </span>
         </div>
-        <div className="flex items-center mx-8">
+        <div className="flex items-center mx-8 mb-2">
           <span className="mr-2 text-blue-600 font-bold bg-blue-300 text-lg p-2 rounded-[50%]">
             <MdLocationOn />
           </span>
