@@ -14,6 +14,7 @@ import mern from "../assets/images/mern.png";
 import mongodb from "../assets/images/mongodb.png";
 import socketio from "../assets/images/socketio.png";
 import tailwindcss from "../assets/images/tailwindcss.png";
+import redux from "../assets/images/redux.png";
 const info = {
   age: 29,
   mobile: "0903282901",
@@ -27,6 +28,7 @@ const info = {
     html,
     mern,
     react,
+    redux,
     mongodb,
     socketio,
     tailwindcss,
