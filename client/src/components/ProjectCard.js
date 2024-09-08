@@ -8,7 +8,7 @@ const ProjectCard = ({ title, link, github, thumb, classname, id }) => {
       className={`pj-card h-[170px] laptop:w-[300px] tablet:w-[300px] w-[250px] ${classname} shadow-md shadow-gray-500 rounded-md`}
     >
       <div className="thumb_info group relative w-full h-full rounded-md">
-        <div className ="text-sm text-white font-bold absolute top-1 rounded-md py-1 px-1 hidden group-hover:block">Xin chờ page load hơi lâu ạ (vì mình dùng host free)</div>
+        <div className ="text-sm text-black font-bold absolute top-1 rounded-md py-1 px-1 hidden group-hover:block">Xin chờ page load hơi lâu ạ (vì mình dùng host free)</div>
         <div className="w-full h-full bg-gray-800/50 z-5 hidden rounded-md group-hover:block absolute top-0 left-0"></div>
         <div className="thumb-img w-full h-full rounded-md">
           <img
