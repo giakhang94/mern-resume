@@ -11,7 +11,7 @@ const Header = () => {
   };
   return (
     <div className="header w-full flex items-center justify-center py-3 mb-5">
-      <div className="log -mt-5 mr-5">
+      <div className="log -mt-5 mr-5 ml-2">
         <Logo />
       </div>
       <div className="nav flex items-center justify-around text-slate-700 tracikng-[1.5px] font-semibold">
