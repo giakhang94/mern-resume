@@ -8,7 +8,7 @@ const Logo = () => {
             My
           </span>
           <span className="bg-emerald-500 py-[3px] text-xl px-2 rounded-md text-white font-bold">
-            CV
+            Portfolio
           </span>
         </p>
       </div>
