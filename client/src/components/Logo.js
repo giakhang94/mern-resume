@@ -4,10 +4,10 @@ const Logo = () => {
     <Link to="/">
       <div>
         <p className="tracking-[1.5px] flex items-center mt-5 block">
-          <span className="text-slate-800 text-xl font-semibold mr-[3px]">
+          <span className="text-slate-800 text-lg font-semibold mr-[3px]">
             My
           </span>
-          <span className="bg-emerald-500 py-[3px] text-xl px-2 rounded-md text-white font-bold">
+          <span className="bg-emerald-500 py-[3px] text-lg px-2 rounded-md text-white font-bold">
             Portfolio
           </span>
         </p>
