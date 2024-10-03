@@ -1,6 +1,7 @@
 import "express-async-errors";
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import connect from "./db/connect.js";
 import dotenv from "dotenv";
@@ -14,6 +15,7 @@ import { fileURLToPath } from "url";
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 app.disable("etag");
 dotenv.config();
 const port = process.env.PORT || 5000;
