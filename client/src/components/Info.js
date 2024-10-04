@@ -20,7 +20,7 @@ const info = {
   mobile: "0903282901",
   fullname: "Nguyễn Gia Khang",
   email: "ngk.khang94@gmail.com",
-  location: "HCMC and Vinh Long Town",
+  location: "Ho Chi Minh City and Vinh Long Town",
   education: ["MIS", " Finance"],
   university: "Banking University - HCMC",
   skills: [
