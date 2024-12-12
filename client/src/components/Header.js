@@ -18,7 +18,7 @@ const Header = () => {
         <div className="hover:text-green-500">
           <a
             target="_blank"
-            href="https://drive.google.com/file/d/1yELVnLFwUSZcAIT9jrMSe0IIEPfsrY27/view?usp=sharing"
+            href="https://drive.google.com/file/d/19cSt5ZvWBLpzmlCQ7OEvA5WMV80l3s1o/view?usp=sharing"
             className="mr-5"
           >
             View my Resume
